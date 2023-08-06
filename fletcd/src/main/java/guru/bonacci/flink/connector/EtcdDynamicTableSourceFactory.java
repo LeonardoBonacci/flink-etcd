@@ -10,7 +10,7 @@ import org.apache.flink.table.connector.source.DynamicTableSource;
 import org.apache.flink.table.factories.DynamicTableSourceFactory;
 import org.apache.flink.table.factories.FactoryUtil;
 
-public class EtcdDynamicTableFactory implements DynamicTableSourceFactory {
+public class EtcdDynamicTableSourceFactory implements DynamicTableSourceFactory {
 
   // define all options statically
   public static final ConfigOption<String> HOSTNAME = ConfigOptions.key("hostname")

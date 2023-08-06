@@ -27,10 +27,10 @@ public class EtcdSink extends RichSinkFunction<Tuple2<String, String>>{
 	}
 
 	@Override
-  public void invoke(Tuple2<String, String> str, Context context) throws Exception {
+  public void invoke(Tuple2<String, String> kv, Context context) throws Exception {
 		KV kvClient = client.getKVClient();
-		ByteSequence key = ByteSequence.from(str.f0.getBytes());
-		ByteSequence value = ByteSequence.from(str.f1.getBytes());
+		ByteSequence key = ByteSequence.from(kv.f0.getBytes());
+		ByteSequence value = ByteSequence.from(kv.f1.getBytes());
 
 		kvClient.put(key, value).get();
 	}
